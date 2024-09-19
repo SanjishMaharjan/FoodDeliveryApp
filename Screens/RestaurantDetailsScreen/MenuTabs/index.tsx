@@ -2,39 +2,28 @@
 import React, { useState } from 'react'
 import { View, Text, Dimensions } from 'react-native'
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view'
-import FirstComponent from '../TabComponents/firstComponent'
-import SecondComponent from '../TabComponents/secondComponent'
+import MenuComponent from './MenuComponent'
 
 const initialLayout = { width: Dimensions.get('window').width }
 
-const TabNavigator = () => {
+const RestaurantMenuTabs = () => {
   const [index, setIndex] = useState(0)
   const [routes] = useState([
-    { key: 'first', title: 'Restaurants' },
+    { key: 'first', title: 'Favourites' },
     { key: 'second', title: 'Items' },
   ])
 
   const renderScene = SceneMap({
-    first: FirstComponent,
-    second: SecondComponent,
+    first: MenuComponent,
+    second: MenuComponent,
   })
 
   const renderTabBar = (props: any) => (
     <TabBar
       {...props}
-      indicatorStyle={{ backgroundColor: '#00C853' }}
+      indicatorStyle={{ backgroundColor: '#000000' }}
       style={{ backgroundColor: '#e4e4e4' }}
-      renderLabel={({ route, focused }) => (
-        <Text
-          style={{
-            color: focused ? '#00C853' : '#000000',
-            fontSize: 16,
-            margin: 8,
-          }}
-        >
-          {route.title}
-        </Text>
-      )}
+      labelStyle={{ fontSize: 16, color: '#000000' }}
     />
   )
 
@@ -49,4 +38,4 @@ const TabNavigator = () => {
   )
 }
 
-export default TabNavigator
+export default RestaurantMenuTabs

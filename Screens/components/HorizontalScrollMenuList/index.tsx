@@ -11,7 +11,13 @@ interface MenuItemsProps {
 
 const MenuItems: React.FC<MenuItemsProps> = ({ title, data }) => {
   const renderItem = ({ item }: { item: any }) => (
-    <CardComponent image={item.image} name={item.name} price={item.price} />
+    <CardComponent
+      image={item.image}
+      name={item.name}
+      price={item.price}
+      restaurantName={item.restaurantName}
+      location={item.location}
+    />
   )
 
   return (

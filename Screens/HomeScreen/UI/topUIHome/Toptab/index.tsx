@@ -3,11 +3,11 @@ import { View } from 'react-native'
 import Location from '../location'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button } from 'react-native-paper'
-import { useNavigation } from '@react-navigation/native'
-import { HomeScreenNavigationProp } from '../../../types/types'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { RootStackParamList } from '../../../../../routes/types/navigationTypes'
 
 export default function HomeTopTab() {
-  const navigation = useNavigation<HomeScreenNavigationProp>()
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
 
   return (
     <SafeAreaView className="px-2 mb-2 ">
@@ -18,11 +18,11 @@ export default function HomeTopTab() {
         {/* Searchbar */}
         <Button
           icon="magnify"
-          buttonColor="#000"
+          buttonColor="#e4e4e4"
           mode="outlined"
           onPress={() => navigation.navigate('SearchScreen')}
           className="h-12 rounded-full"
-          labelStyle={{ color: 'green' }}
+          labelStyle={{ color: 'black', fontSize: 14 }}
         >
           Search
         </Button>

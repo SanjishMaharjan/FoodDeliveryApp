@@ -1,11 +1,8 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { HomeStack } from './ScreensRoute'
-import { OrderStack } from './ScreensRoute'
-import { ProfileStack } from './ScreensRoute'
+import { HomeStack, OrderStack, ProfileStack, AuthStack } from './ScreensRoute'
 import TabBarButton from '../components/Buttons/TabBarButton'
-import { AuthStack } from './ScreensRoute'
 
 const Tab = createBottomTabNavigator()
 
@@ -18,12 +15,10 @@ export default function MainTabNavigator() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarStyle: {
-          backgroundColor: '#D3D3D3',
           borderTopWidth: 0,
           height: 50,
           paddingBottom: 5,
         },
-
         tabBarIcon: ({ color, size }) => {
           let iconName:
             | 'home'
@@ -46,7 +41,10 @@ export default function MainTabNavigator() {
             <MaterialCommunityIcons name={iconName} size={size} color={color} />
           )
         },
-        tabBarButton: (props) => <TabBarButton {...props} />,
+        tabBarButton: (props) => {
+          const isActive = props.accessibilityState?.selected || false
+          return <TabBarButton {...props} isActive={isActive} />
+        },
       })}
     >
       <Tab.Screen name="Home" component={HomeStack} />

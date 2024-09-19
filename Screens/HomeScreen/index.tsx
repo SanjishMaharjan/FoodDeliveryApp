@@ -12,7 +12,7 @@ import { CategoryListData } from './dummydata/Category'
 
 export default function Home() {
   return (
-    <View className="flex-1 p-2">
+    <View className="flex-1">
       {/* Adding a ScrollView to make both MenuItems and AvailableOffers scrollable */}
       <ScrollView showsVerticalScrollIndicator={false}>
         <HomeTopTab />
@@ -20,7 +20,7 @@ export default function Home() {
         <Advertisement images={AdvertismentImages} />
         <MenuItems title="Hot Deals" data={FOOD_ITEMS} />
         <MenuItems title="Delivery" data={FOOD_ITEMS} />
-        <HorizontalScrollMenu title="Resturant" data={NEPALI_RESTAURANTS} />
+        <HorizontalScrollMenu title="Restaurant" data={NEPALI_RESTAURANTS} />
       </ScrollView>
     </View>
   )
